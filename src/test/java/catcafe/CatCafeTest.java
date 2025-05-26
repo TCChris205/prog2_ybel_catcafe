@@ -5,6 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
+import tree.Empty;
+import tree.Node;
+import tree.TreeVisitor;
+
 public class CatCafeTest {
 
     @Test
@@ -79,5 +83,24 @@ public class CatCafeTest {
         cafe.addCat(cat2);
 
         assertEquals(cat1 ,cafe.getCatByWeight(0, 10));
+    }
+
+    @Test
+    public void testaccept_Root_Node(){
+        CatCafe cafe = new CatCafe();
+        FelineOverLord cat = new FelineOverLord("Test1",1);
+        cafe.addCat(cat);
+        TreeVisitor<FelineOverLord> visitor = new TreeVisitor<>() {
+            @Override
+            public String visit(Empty<FelineOverLord> node) {
+                return "";
+            }
+
+            @Override
+            public String visit(Node<FelineOverLord> node) {
+                return node.data().toString();
+            }
+        };
+        assertEquals(cat.toString(), cafe.accept(visitor));
     }
 }
