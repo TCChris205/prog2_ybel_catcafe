@@ -25,5 +25,8 @@ public class Main {
 
         meow = cafe.getCatByName("Miss Chief Sooky");
         if (meow != null) System.out.println("Name 'Miss Chief Sooky': " + meow);
+        System.out.println("\n");
+        String res = cafe.accept(new InOrderVisitor<FelineOverLord>());
+        System.out.println(res);
     }
 }
