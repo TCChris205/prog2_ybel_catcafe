@@ -60,4 +60,13 @@ public class CatCafeTest {
 
         assertEquals(cat ,cafe.getCatByWeight(0, 10));
     }
+
+    @Test
+    public void testGetCatByWeight_Cat_not_in_range(){
+        CatCafe cafe = new CatCafe();
+        FelineOverLord cat = new FelineOverLord("Test1",11);
+        cafe.addCat(cat);
+
+        assertNull(cafe.getCatByWeight(0, 10));
+    }
 }
