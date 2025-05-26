@@ -5,7 +5,7 @@ public class InOrderVisitor<T extends Comparable<T>> implements TreeVisitor<T>{
 
     @Override
     public String visit(Empty<T> node) {
-        return "Empty";
+        return "";
     }
 
     @Override
