@@ -103,4 +103,21 @@ public class CatCafeTest {
         };
         assertEquals(cat.toString(), cafe.accept(visitor));
     }
+
+    @Test
+    public void testaccept_no_cat_in_tree(){
+        CatCafe cafe = new CatCafe();
+        TreeVisitor<FelineOverLord> visitor = new TreeVisitor<>() {
+            @Override
+            public String visit(Empty<FelineOverLord> node) {
+                return "";
+            }
+
+            @Override
+            public String visit(Node<FelineOverLord> node) {
+                return node.data().toString();
+            }
+        };
+        assertEquals("", cafe.accept(visitor));
+    }
 }
