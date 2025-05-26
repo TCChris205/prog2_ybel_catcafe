@@ -1,6 +1,7 @@
 package catcafe;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
@@ -33,6 +34,15 @@ public class CatCafeTest {
         cafe.addCat(cat);
 
         assertEquals(cat, cafe.getCatByName("Test1"));
+    }
+
+    @Test
+    public void testGetCatByName_cat_does_not_Exists(){
+        CatCafe cafe = new CatCafe();
+        FelineOverLord cat = new FelineOverLord("Test1",1);
+        cafe.addCat(cat);
+
+        assertNull(cafe.getCatByName("Test2"));
     }
     
 }
