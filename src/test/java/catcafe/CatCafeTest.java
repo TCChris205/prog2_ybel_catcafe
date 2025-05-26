@@ -25,5 +25,14 @@ public class CatCafeTest {
         CatCafe cafe = new CatCafe();
         assertThrows(NullPointerException.class, () -> cafe.addCat(null));
     }
+
+    @Test
+    public void testGetCatByName_cat_Exists(){
+        CatCafe cafe = new CatCafe();
+        FelineOverLord cat = new FelineOverLord("Test1",1);
+        cafe.addCat(cat);
+
+        assertEquals(cat, cafe.getCatByName("Test1"));
+    }
     
 }
