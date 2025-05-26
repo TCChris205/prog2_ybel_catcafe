@@ -1,6 +1,7 @@
 package catcafe;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 public class CatCafeTest {
@@ -17,6 +18,12 @@ public class CatCafeTest {
         cafe.addCat(cat1);
         cafe.addCat(cat2);
         assertEquals(2,cafe.getCatCount());
+    }
+    
+    @Test
+    public void testAddCat_Null_Case(){
+        CatCafe cafe = new CatCafe();
+        assertThrows(NullPointerException.class, () -> cafe.addCat(null));
     }
     
 }
