@@ -20,12 +20,12 @@ public class Main {
         System.out.println("Es schnurren " + cafe.getCatCount() + " Samtpfötchen.");
 
         Optional<FelineOverLord> meow = cafe.getCatByWeight(3, 4);
-        if (!meow.isEmpty()) System.out.println("Gewicht [3,4]: " + meow);
+        if (!meow.isEmpty()) System.out.println("Gewicht [3,4]: " + meow.get());
 
         meow = cafe.getCatByName("Morticia");
-        if (!meow.isEmpty()) System.out.println("Name 'Morticia': " + meow);
+        if (!meow.isEmpty()) System.out.println("Name 'Morticia': " + meow.get());
 
         meow = cafe.getCatByName("Miss Chief Sooky");
-        if (!meow.isEmpty()) System.out.println("Name 'Miss Chief Sooky': " + meow);
+        if (!meow.isEmpty()) System.out.println("Name 'Miss Chief Sooky': " + meow.get());
     }
 }
