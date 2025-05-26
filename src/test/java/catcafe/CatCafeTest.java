@@ -45,4 +45,9 @@ public class CatCafeTest {
         assertNull(cafe.getCatByName("Test2"));
     }
     
+    @Test
+    public void testGetCatByWeight_Without_cats(){
+        CatCafe cafe = new CatCafe();
+        assertNull(cafe.getCatByWeight(0, 10));
+    }
 }
