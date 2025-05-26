@@ -1,8 +1,8 @@
 package catcafe;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import tree.Empty;
@@ -37,7 +37,7 @@ public class CatCafeTest {
         FelineOverLord cat = new FelineOverLord("Test1",1);
         cafe.addCat(cat);
 
-        assertEquals(cat, cafe.getCatByName("Test1"));
+        assertEquals(cat, cafe.getCatByName("Test1").get());
     }
 
     @Test
@@ -46,13 +46,13 @@ public class CatCafeTest {
         FelineOverLord cat = new FelineOverLord("Test1",1);
         cafe.addCat(cat);
 
-        assertNull(cafe.getCatByName("Test2"));
+        assertTrue(cafe.getCatByName("Test2").isEmpty());
     }
     
     @Test
     public void testGetCatByWeight_Without_cats(){
         CatCafe cafe = new CatCafe();
-        assertNull(cafe.getCatByWeight(0, 10));
+        assertTrue(cafe.getCatByWeight(0, 10).isEmpty());
     }
     
 
@@ -62,7 +62,7 @@ public class CatCafeTest {
         FelineOverLord cat = new FelineOverLord("Test1",1);
         cafe.addCat(cat);
 
-        assertEquals(cat ,cafe.getCatByWeight(0, 10));
+        assertEquals(cat ,cafe.getCatByWeight(0, 10).get());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class CatCafeTest {
         FelineOverLord cat = new FelineOverLord("Test1",11);
         cafe.addCat(cat);
 
-        assertNull(cafe.getCatByWeight(0, 10));
+        assertTrue(cafe.getCatByWeight(0, 10).isEmpty());
     }
 
     @Test
@@ -82,7 +82,7 @@ public class CatCafeTest {
         cafe.addCat(cat1);
         cafe.addCat(cat2);
 
-        assertEquals(cat1 ,cafe.getCatByWeight(0, 10));
+        assertEquals(cat1 ,cafe.getCatByWeight(0, 10).get());
     }
 
     @Test
